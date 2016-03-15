@@ -13,9 +13,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.gmail.ostapenkoyevgeniy.skynet.R;
+import com.gmail.ostapenkoyevgeniy.skynet.asynctask.AddRobotAsyncTask;
 import com.gmail.ostapenkoyevgeniy.skynet.entity.Robot;
-import com.gmail.ostapenkoyevgeniy.skynet.manager.Manager;
-import com.gmail.ostapenkoyevgeniy.skynet.manager.RobotManager;
 
 import static android.widget.Toast.LENGTH_LONG;
 
@@ -52,8 +51,9 @@ public class AddRobotDialog extends DialogFragment implements OnClickListener {
                     robot.setYear(year);
                     robot.setType(type);
 
-                    Manager<Robot> robotManager = new RobotManager();
-                    robotManager.add(robot);
+                    AddRobotAsyncTask addRobot = new AddRobotAsyncTask(v.getContext());
+                    addRobot.execute(robot);
+
                     dismiss();
                 } catch (NumberFormatException e) {
                     Toast.makeText(v.getContext(), "Некорректный год!", LENGTH_LONG).show();

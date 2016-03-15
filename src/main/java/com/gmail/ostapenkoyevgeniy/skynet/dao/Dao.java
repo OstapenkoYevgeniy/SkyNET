@@ -3,7 +3,7 @@ package com.gmail.ostapenkoyevgeniy.skynet.dao;
 import java.util.List;
 
 public interface Dao<T, K> {
-    T insert(T object) throws DaoException;
+    boolean insert(T object) throws DaoException;
 
     int update(T object) throws DaoException;
 

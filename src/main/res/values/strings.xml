@@ -9,7 +9,7 @@
     <string name="robot_year">Год создания</string>
 
     <string-array name="robot_types">
-        <item>Мобильный</item>
+        <item>droid</item>
         <item>Стационарный</item>
         <item>Промышленный</item>
         <item>Бытовой</item>
